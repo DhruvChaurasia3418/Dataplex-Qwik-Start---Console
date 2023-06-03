@@ -1,15 +1,17 @@
+export LOCATION=
+
 gcloud dataplex lakes create sensors \
-    --location=us-east1 \
+    --location=$LOCATION \
     --display-name="sensors" \
     --description="Ecommerce Domain"
 
 
 gcloud dataplex zones create temperature-raw-data \
-    --location=us-east1 \
+    --location=$LOCATION \
     --lake=sensors \
     --display-name="temperature raw data" \
     --type=RAW \
     --resource-location-type=SINGLE_REGION \
     --discovery-enabled
 
-gsutil mb -p <GCP_TD> -c REGIONAL -l us-east1 gs://<GCP_TD>
+gsutil mb -p <GCP_TD> -c REGIONAL -l $LOCATION gs://<GCP_TD>
