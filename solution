@@ -1,4 +1,5 @@
 export LOCATION=
+export ID=
 
 gcloud dataplex lakes create sensors \
     --location=$LOCATION \
@@ -14,4 +15,4 @@ gcloud dataplex zones create temperature-raw-data \
     --resource-location-type=SINGLE_REGION \
     --discovery-enabled
 
-gsutil mb -p <GCP_TD> -c REGIONAL -l $LOCATION gs://<GCP_TD>
+gsutil mb -p $ID -c REGIONAL -l $LOCATION gs://$ID
